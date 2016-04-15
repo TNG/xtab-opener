@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XtabFileOpener", "XtabFileOpener\XtabFileOpener.csproj", "{1DAD26DC-91FA-4F69-8010-0A0DEDD725F1}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{F3ADF1EE-55FB-46C5-B10B-A72F81DEA634}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XtabFileOpenerTest", "XtabFileOpenerTest\XtabFileOpenerTest.csproj", "{259325FE-EDC1-4019-964D-D836FAD9CA97}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DAD26DC-91FA-4F69-8010-0A0DEDD725F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DAD26DC-91FA-4F69-8010-0A0DEDD725F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DAD26DC-91FA-4F69-8010-0A0DEDD725F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DAD26DC-91FA-4F69-8010-0A0DEDD725F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3ADF1EE-55FB-46C5-B10B-A72F81DEA634}.Debug|Any CPU.ActiveCfg = Debug
+		{F3ADF1EE-55FB-46C5-B10B-A72F81DEA634}.Release|Any CPU.ActiveCfg = Release
+		{259325FE-EDC1-4019-964D-D836FAD9CA97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{259325FE-EDC1-4019-964D-D836FAD9CA97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{259325FE-EDC1-4019-964D-D836FAD9CA97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{259325FE-EDC1-4019-964D-D836FAD9CA97}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

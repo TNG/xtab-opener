@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+  <table name="NumberSheet">
+    <column>Col1</column>
+    <column>Col2</column>
+    <column>Col3</column>
+    <column>Col4</column>
+    <column>Col5</column>
+    <row>
+      <value>Value1.1</value>
+      <value>Value2.1</value>
+      <value>Value3.1</value>
+      <value>Value4.1</value>
+      <value>Value5.1</value>
+    </row>
+    <row>
+      <value>Value1.2</value>
+      <value>Value2.2</value>
+      <value>Value3.2</value>
+      <value>Value4.2</value>
+      <value>Value5.2</value>
+    </row>
+  </table>
+  <table name="KeySheet">
+    <column>ColA</column>
+    <column>ColB</column>
+    <column>ColC</column>
+    <column>ColD</column>
+    <column>ColE</column>
+    <column>ColF</column>
+    <row>
+      <value>ValueA.A</value>
+      <value>ValueB.A</value>
+      <value>ValueC.A</value>
+      <value>ValueD.A</value>
+      <value>ValueE.A</value>
+      <value>ValueF.A</value>
+    </row>
+    <row>
+      <value>ValueA.B</value>
+      <value>ValueB.B</value>
+      <value>ValueC.B</value>
+      <value>ValueD.B</value>
+      <value>ValueE.B</value>
+      <value>ValueF.B</value>
+    </row>
+  </table>
+</dataset>
