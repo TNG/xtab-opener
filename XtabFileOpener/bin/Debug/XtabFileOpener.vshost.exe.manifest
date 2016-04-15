@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="XtabFileOpener.exe" size="46000">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="XtabFileOpener.exe" size="44464">
       <assemblyIdentity name="XtabFileOpener" version="0.0.0.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>79cbLwKK0w0txH16/uOAkZaX6YDPtYDDEiPPYpSwG6Y=</dsig:DigestValue>
+        <dsig:DigestValue>WYlbU7wfKCBZ8G7GpOND0PegVA4gxWJvXuNFU4r3p/4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

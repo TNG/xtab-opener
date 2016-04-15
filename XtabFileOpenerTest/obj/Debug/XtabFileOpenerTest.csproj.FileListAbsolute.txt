@@ -88,3 +88,21 @@ C:\Users\mairs\Documents\Visual Studio 2015\Projects\XtabFileOpener07Refactored5
 C:\Users\mairs\Documents\Visual Studio 2015\Projects\XtabFileOpener07Refactored5Nuget\XtabFileOpenerTest\obj\Debug\XtabFileOpenerTest.csproj.GenerateResource.Cache
 C:\Users\mairs\Documents\Visual Studio 2015\Projects\XtabFileOpener07Refactored5Nuget\XtabFileOpenerTest\obj\Debug\XtabFileOpenerTest.dll
 C:\Users\mairs\Documents\Visual Studio 2015\Projects\XtabFileOpener07Refactored5Nuget\XtabFileOpenerTest\obj\Debug\XtabFileOpenerTest.pdb
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpenerTest\bin\Debug\Resources\TestFile.xtab
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpenerTest\bin\Debug\Res\xtabSchema.xsd
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpenerTest\bin\Debug\Resources\TestFileAdd.xtab
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpenerTest\bin\Debug\Resources\TestFileAssert.xtab
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpenerTest\bin\Debug\XtabFileOpenerTest.dll
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpenerTest\bin\Debug\XtabFileOpenerTest.pdb
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpenerTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpenerTest\bin\Debug\Moq.dll
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpenerTest\bin\Debug\XtabFileOpener.exe
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpenerTest\bin\Debug\XtabFileOpener.pdb
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpenerTest\bin\Debug\Moq.xml
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpenerTest\bin\Debug\de\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpenerTest\obj\Debug\XtabFileOpenerTest.csprojResolveAssemblyReference.cache
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpenerTest\obj\Debug\XtabFileOpenerTest.csproj.ResolveComReference.cache
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpenerTest\obj\Debug\XtabFileOpenerTest.Properties.Resources.resources
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpenerTest\obj\Debug\XtabFileOpenerTest.csproj.GenerateResource.Cache
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpenerTest\obj\Debug\XtabFileOpenerTest.dll
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpenerTest\obj\Debug\XtabFileOpenerTest.pdb

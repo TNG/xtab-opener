@@ -114,3 +114,19 @@ C:\Users\mairs\Documents\Visual Studio 2015\Projects\XtabFileOpener07Refactored5
 C:\Users\mairs\Documents\Visual Studio 2015\Projects\XtabFileOpener07Refactored5Nuget\XtabFileOpener\obj\Release\XtabFileOpener.csproj.GenerateResource.Cache
 C:\Users\mairs\Documents\Visual Studio 2015\Projects\XtabFileOpener07Refactored5Nuget\XtabFileOpener\obj\Release\XtabFileOpener.exe.manifest
 C:\Users\mairs\Documents\Visual Studio 2015\Projects\XtabFileOpener07Refactored5Nuget\XtabFileOpener\obj\Release\XtabFileOpener.application
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpener\bin\Release\XtabFileOpener.exe.config
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpener\bin\Release\XtabFileOpener.XML
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpener\obj\Release\XtabFileOpener.csproj.ResolveComReference.cache
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpener\obj\Release\XtabFileOpener.exe
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpener\obj\Release\XtabFileOpener.pdb
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpener\bin\Release\Resources\TestFile.xtab
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpener\bin\Release\Res\xtabSchema.xsd
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpener\bin\Release\XtabFileOpener.exe.manifest
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpener\bin\Release\XtabFileOpener.application
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpener\bin\Release\XtabFileOpener.exe
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpener\bin\Release\XtabFileOpener.pdb
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpener\obj\Release\XtabFileOpener.csprojResolveAssemblyReference.cache
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpener\obj\Release\XtabFileOpener.Properties.Resources.resources
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpener\obj\Release\XtabFileOpener.csproj.GenerateResource.Cache
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpener\obj\Release\XtabFileOpener.exe.manifest
+C:\Users\mairs\Documents\GitHub\xtab-opener\XtabFileOpener\obj\Release\XtabFileOpener.application
