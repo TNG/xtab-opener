@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Office.Interop.Excel;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
-using XtabFileOpener.TableContainer;
 using XtabFileOpener.TableContainer.SpreadsheetTableContainer.ExcelTableContainer;
-using Forms = System.Windows.Forms;
 
 namespace XtabFileOpener.Spreadsheet.SpreadsheetAdapter
 {
@@ -104,7 +100,6 @@ namespace XtabFileOpener.Spreadsheet.SpreadsheetAdapter
         /// </summary>
         private void waitForRealClosing()
         {
-            //wait until the file is really closed (if this is missing, there can occur exceptions)
             while (excel.Workbooks.Count != 0)
                 Thread.Sleep(10);
             raiseClosedEvent();

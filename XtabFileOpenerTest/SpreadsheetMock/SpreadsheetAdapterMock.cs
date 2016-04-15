@@ -20,7 +20,6 @@ namespace XtabFileOpenerTest.SpreadsheetMock
 
         private int activeSheet;
 
-        private event applyChanges save;
         private event spreadsheetClosed closed;
 
         private const string nameAlreadyExistsMessage = "The name already exists";

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,7 +15,7 @@ namespace XtabFileOpener.TableContainer
         protected object[,] tableArray;
 
         /// <summary>
-        /// defines whether the first row in tableArray contains the column names
+        /// defines whether the TableArray contains the column names in tis first row
         /// </summary>
         public bool firstRowContainsColumnNames { get; protected set; }
 
@@ -53,7 +50,7 @@ namespace XtabFileOpener.TableContainer
         /// get an array with one-based indexing
         /// </summary>
         /// <returns></returns>
-        public object[,] TableArray
+        public virtual object[,] TableArray
         {
             get { return tableArray; }
         }
@@ -66,17 +63,12 @@ namespace XtabFileOpener.TableContainer
             get { return Height == 0 || Width == 0; }
         }
 
-        /// <summary>
-        /// checks whether the given Table has the same name and content
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
         public override bool Equals(object obj)
         {
             Table tab = obj as Table;
             object[,] arr1 = TableArray;
             object[,] arr2 = tab.TableArray;
-            return tab.name.Equals(name) && ListTableContainer.Array2D.areEqual(arr1, arr2);
+            return name.Equals(tab.name) && ListTableContainer.Array2D.areEqual(arr1, arr2);
         }
     }
 }

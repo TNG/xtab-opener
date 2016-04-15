@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,5 +24,7 @@ namespace XtabFileOpener.XtabFile
         public const string row = "row";
         public const string value = "value";
         public const string nullvalue = "null";
+        public const string wrongEndTag = " />";
+        public const string endTag = "/>";
     }
 }

@@ -2,7 +2,6 @@
 using System.Text;
 using System.Threading;
 using XtabFileOpener.TableContainer;
-using XtabFileOpener.Spreadsheet.SpreadsheetAdapter;
 using XtabFileOpener.XtabFile;
 
 namespace XtabFileOpener.Spreadsheet

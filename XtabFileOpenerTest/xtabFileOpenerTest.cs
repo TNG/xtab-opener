@@ -2,14 +2,10 @@
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
-using XtabFileOpener;
-using XtabFileOpener.XtabFile;
 using XtabFileOpenerTest.SpreadsheetMock;
 using XtabFileOpener.TableContainer;
 using XtabFileOpener.TableContainer.XmlTableContainer;
 using System.Reflection;
-using System.Xml.Linq;
-using System.Linq;
 
 namespace XtabFileOpenerTest
 {
