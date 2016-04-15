@@ -10,7 +10,7 @@ using XtabFileOpener.TableContainer.SpreadsheetTableContainer.ExcelTableContaine
 namespace XtabFileOpener.Spreadsheet.SpreadsheetAdapter
 {
     /// <summary>
-    /// allows interacting with Excel
+    /// enables interacting with Excel
     /// </summary>
     internal class ExcelAdapter : SpreadsheetAdapter
     {

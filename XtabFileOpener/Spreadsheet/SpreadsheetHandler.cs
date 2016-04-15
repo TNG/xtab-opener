@@ -11,26 +11,25 @@ namespace XtabFileOpener.Spreadsheet
     /// </summary>
     internal class SpreadsheetHandler
     {
-        internal SpreadsheetAdapter.SpreadsheetAdapter spreadsheet
+        internal SpreadsheetAdapter.SpreadsheetAdapter spreadsheetAdapter
         {
             get; private set;
         }
 
-        internal SpreadsheetHandler(TableContainer.TableContainer tableContainer, SpreadsheetAdapter.SpreadsheetAdapter spreadsheet, bool autosizeColumns)
+        internal SpreadsheetHandler(TableContainer.TableContainer tableContainer, SpreadsheetAdapter.SpreadsheetAdapter spreadsheetAdapter, bool autosizeColumns)
         {
-            this.spreadsheet = spreadsheet;
-            spreadsheet.createSpreadsheet(tableContainer.Name);
+            this.spreadsheetAdapter = spreadsheetAdapter;
+            this.spreadsheetAdapter.createSpreadsheet(tableContainer.Name);
             createWorkbookFromTableContainer(tableContainer, autosizeColumns);
         }
         
         internal void openSpreadsheet()
         {
-            spreadsheet.saveSpreadsheet();
-            //spreadsheet.save += onSave;
-            spreadsheet.startListeningToSaving();
-            spreadsheet.closed += onClosed;
-            spreadsheet.startListeningToClosing();
-            spreadsheet.show();
+            spreadsheetAdapter.saveSpreadsheet();
+            spreadsheetAdapter.startListeningToSaving();
+            spreadsheetAdapter.closed += onClosed;
+            spreadsheetAdapter.startListeningToClosing();
+            spreadsheetAdapter.show();
         }
 
         private void createWorkbookFromTableContainer(TableContainer.TableContainer tableContainer, bool autoSizeColumns)
@@ -38,37 +37,37 @@ namespace XtabFileOpener.Spreadsheet
             //necessary if Excel opens several sheets at the beginning
             closeExistingSheetsExceptOne();
 
-            bool standardSheetExists = spreadsheet.SheetCount >= 1;
+            bool standardSheetExists = spreadsheetAdapter.SheetCount >= 1;
             //necessary to rename the standard sheet with an unusual name, so that no table of the xtab-file has the same name
             if (standardSheetExists)
-                spreadsheet.renameSheet(0, "DefaultSheetWithInimitableName");
+                spreadsheetAdapter.renameSheet(0, "DefaultSheetWithInimitableName");
 
             foreach (Table table in tableContainer)
                 addTableToWorkbook(table, autoSizeColumns);
 
             //should never occur: if there is no table, then add default table
             if (tableContainer.Count == 0)
-                spreadsheet.addSheetBehind(XtabFormat.default_table_name);
+                spreadsheetAdapter.addSheetBehind(XtabFormat.default_table_name);
 
             if (standardSheetExists)
-                spreadsheet.deleteSheet(0);
+                spreadsheetAdapter.deleteSheet(0);
 
-            spreadsheet.activateSheet(0);
+            spreadsheetAdapter.activateSheet(0);
 
-            spreadsheet.createTableContainer();
+            spreadsheetAdapter.createTableContainer();
         }
 
         private void closeExistingSheetsExceptOne()
         {
-            while (spreadsheet.SheetCount >= 2)
-                spreadsheet.deleteSheet(0);
+            while (spreadsheetAdapter.SheetCount >= 2)
+                spreadsheetAdapter.deleteSheet(0);
         }
 
         private void addTableToWorkbook(Table table, bool autosize)
         {
-            int number = spreadsheet.addSheetBehind(table.Name);
+            int number = spreadsheetAdapter.addSheetBehind(table.Name);
             if (!table.Empty)
-                spreadsheet.setContentOfSheet(number, table.TableArray, autosize);
+                spreadsheetAdapter.setContentOfSheet(number, table.TableArray, autosize);
         }
 
         private bool closed = false;
@@ -78,7 +77,7 @@ namespace XtabFileOpener.Spreadsheet
             closed = true;
             Monitor.Pulse(this);
             Monitor.Exit(this);
-            spreadsheet.destroySpreadsheet();
+            spreadsheetAdapter.destroySpreadsheet();
         }
 
         /// <summary>

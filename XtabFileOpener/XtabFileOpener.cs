@@ -31,7 +31,7 @@ namespace XtabFileOpener
         public void openFile(SpreadsheetAdapter spreadsheetAdapter)
         {
             spreadsheetHandler = new SpreadsheetHandler(fileHandler.TableContainer, spreadsheetAdapter, true);
-            spreadsheetHandler.spreadsheet.save += fileHandler.saveChanges;
+            spreadsheetHandler.spreadsheetAdapter.save += fileHandler.saveChanges;
             spreadsheetHandler.openSpreadsheet();
         }
 

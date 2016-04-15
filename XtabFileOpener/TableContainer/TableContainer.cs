@@ -43,6 +43,11 @@ namespace XtabFileOpener.TableContainer
             get;
         }
 
+        /// <summary>
+        /// checks whether the given TableContainer is equals to this one concerning the name and content of every table
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             TableContainer con = obj as TableContainer;
