@@ -206,10 +206,16 @@
             checks whether the table is empty
             </summary>
         </member>
+        <member name="M:XtabFileOpener.TableContainer.Table.Equals(System.Object)">
+            <summary>
+            checks whether the given Table has the same name and content
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
         <member name="T:XtabFileOpener.TableContainer.TableContainer">
             <summary>
-            Represents a container of database tables; the container is not static, that means it only contains references on tables.
-            the consequence is that iterating over the tables at different times can yield different tables
+            Represents a container of database tables; the container is not static, that means that iterating over the tables at different times can yield different tables
             </summary>
         </member>
         <member name="M:XtabFileOpener.TableContainer.TableContainer.System#Collections#IEnumerable#GetEnumerator">
@@ -222,6 +228,13 @@
             <summary>
             number of the tables
             </summary>
+        </member>
+        <member name="M:XtabFileOpener.TableContainer.TableContainer.Equals(System.Object)">
+            <summary>
+            checks whether the given TableContainer contains the same number of tables with the same name and content
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
         </member>
         <member name="T:XtabFileOpener.TableContainer.ListTableContainer.Array2D">
             <summary>

@@ -2,7 +2,6 @@
 using System.Text;
 using XtabFileOpener.Spreadsheet;
 using XtabFileOpener.Spreadsheet.SpreadsheetAdapter;
-using XtabFileOpener.XtabFile;
 
 namespace XtabFileOpener
 {

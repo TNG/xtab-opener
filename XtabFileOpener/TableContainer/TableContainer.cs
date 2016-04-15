@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 namespace XtabFileOpener.TableContainer
 {
     /// <summary>
-    /// Represents a container of database tables; the container is not static, that means it only contains references on tables.
-    /// the consequence is that iterating over the tables at different times can yield different tables
+    /// Represents a container of database tables; the container is not static, that means that iterating over the tables at different times can yield different tables
     /// </summary>
     public abstract class TableContainer : IEnumerable<Table>
     {
@@ -43,6 +42,11 @@ namespace XtabFileOpener.TableContainer
             get;
         }
 
+        /// <summary>
+        /// checks whether the given TableContainer contains the same number of tables with the same name and content
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             TableContainer con = obj as TableContainer;

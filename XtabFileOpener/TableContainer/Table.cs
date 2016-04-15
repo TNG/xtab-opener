@@ -66,12 +66,17 @@ namespace XtabFileOpener.TableContainer
             get { return Height == 0 || Width == 0; }
         }
 
+        /// <summary>
+        /// checks whether the given Table has the same name and content
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             Table tab = obj as Table;
             object[,] arr1 = TableArray;
             object[,] arr2 = tab.TableArray;
-            return ListTableContainer.Array2D.areEqual(arr1, arr2);
+            return tab.name.Equals(name) && ListTableContainer.Array2D.areEqual(arr1, arr2);
         }
     }
 }
