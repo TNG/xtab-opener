@@ -69,7 +69,7 @@ namespace XtabFileOpener.Spreadsheet
         {
             int number = spreadsheet.addSheetBehind(table.Name);
             if (!table.Empty)
-                spreadsheet.setContentOfSheet(number, table.getTableArray(), autosize);
+                spreadsheet.setContentOfSheet(number, table.TableArray, autosize);
         }
 
         private bool closed = false;

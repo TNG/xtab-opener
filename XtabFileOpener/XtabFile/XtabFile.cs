@@ -87,7 +87,7 @@ namespace XtabFileOpener.XtabFile
         {
             XElement xTable = new XElement(XtabFormat.table, new XAttribute(XtabFormat.table_name, table.Name));
             root.Add(xTable);
-            object[,] array = table.getTableArray();
+            object[,] array = table.TableArray;
             if (array != null)
             {
                 int i = array.GetLowerBound(0);

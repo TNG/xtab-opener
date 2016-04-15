@@ -110,7 +110,7 @@ namespace XtabFileOpenerTest
                 else
                 {
                     numOfSheet = spreadSheetMock.mock.Object.addSheetBehind(table.Name);
-                    spreadSheetMock.mock.Object.setContentOfSheet(numOfSheet, table.getTableArray(), true);
+                    spreadSheetMock.mock.Object.setContentOfSheet(numOfSheet, table.TableArray, true);
                 }
                 if (saveAfterEveryEdit) spreadSheetMock.mock.Object.saveSpreadsheet();
             }
@@ -118,7 +118,7 @@ namespace XtabFileOpenerTest
 
         private void addTableToFile(Table table, int numOfSheet)
         {
-            spreadSheetMock.addRangeToSheet(numOfSheet, (string[,])table.getTableArray());
+            spreadSheetMock.addRangeToSheet(numOfSheet, (string[,])table.TableArray);
         }
     }
 }

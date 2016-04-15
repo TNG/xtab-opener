@@ -175,9 +175,14 @@
             represents a database tables
             </summary>
         </member>
-        <member name="P:XtabFileOpener.TableContainer.Table.tableArray">
+        <member name="F:XtabFileOpener.TableContainer.Table.tableArray">
             <summary>
             one based array with the whole content of the table, including columns
+            </summary>
+        </member>
+        <member name="P:XtabFileOpener.TableContainer.Table.firstRowContainsColumnNames">
+            <summary>
+            defines whether the first row in tableArray contains the column names
             </summary>
         </member>
         <member name="P:XtabFileOpener.TableContainer.Table.Width">
@@ -190,7 +195,7 @@
             number of rows of the table including the row with the column names
             </summary>
         </member>
-        <member name="M:XtabFileOpener.TableContainer.Table.getTableArray">
+        <member name="P:XtabFileOpener.TableContainer.Table.TableArray">
             <summary>
             get an array with one-based indexing
             </summary>

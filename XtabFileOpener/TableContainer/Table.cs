@@ -4,7 +4,6 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using XtabFileOpener.TableContainer.ListTableContainer;
 
 namespace XtabFileOpener.TableContainer
 {
@@ -16,8 +15,11 @@ namespace XtabFileOpener.TableContainer
         /// <summary>
         /// one based array with the whole content of the table, including columns
         /// </summary>
-        public object[,] tableArray { get; protected set; }
+        protected object[,] tableArray;
 
+        /// <summary>
+        /// defines whether the first row in tableArray contains the column names
+        /// </summary>
         public bool firstRowContainsColumnNames { get; protected set; }
 
         public Table(string name)
@@ -47,46 +49,13 @@ namespace XtabFileOpener.TableContainer
             get { return tableArray.GetLength(0); }
         }
 
-
-        /// <summary>
-        /// creates a string array of this table, including the column names
-        /// </summary>
-        /// <returns></returns>
-        //[Obsolete]
-        //public string[,] toArray()
-        //{
-        //    string[,] result = new string[Height, maxWidth];
-
-        //    int i = 0;
-        //    int j = 0;
-        //    foreach (string value in Columns)
-        //    {
-        //        result[i, j] = value;
-        //        j++;
-        //    }
-
-        //    i += Columns.Exists ? 1 : 0;
-        //    foreach (Row row in this)
-        //    {
-        //        j = 0;
-        //        foreach (string value in row)
-        //        {
-        //            result[i, j] = value;
-        //            j++;
-        //        }
-        //        i++;
-        //    }
-        //    Array2D.replaceNullByEmptyString(result);
-        //    return result;
-        //}
-
         /// <summary>
         /// get an array with one-based indexing
         /// </summary>
         /// <returns></returns>
-        public virtual object[,] getTableArray()
+        public object[,] TableArray
         {
-            return tableArray;
+            get { return tableArray; }
         }
 
         /// <summary>
@@ -100,8 +69,8 @@ namespace XtabFileOpener.TableContainer
         public override bool Equals(object obj)
         {
             Table tab = obj as Table;
-            object[,] arr1 = getTableArray();
-            object[,] arr2 = tab.getTableArray();
+            object[,] arr1 = TableArray;
+            object[,] arr2 = tab.TableArray;
             return ListTableContainer.Array2D.areEqual(arr1, arr2);
         }
     }

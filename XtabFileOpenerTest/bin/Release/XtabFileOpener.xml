@@ -38,6 +38,11 @@
             array with the path of the xtab-file at the first position
             </param>
         </member>
+        <member name="T:XtabFileOpener.Spreadsheet.SpreadsheetAdapter.ExcelAdapter">
+            <summary>
+            allows interacting with Excel
+            </summary>
+        </member>
         <member name="M:XtabFileOpener.Spreadsheet.SpreadsheetAdapter.ExcelAdapter.waitForRealClosing">
             <summary>
             waits until the Excel workbook is really closed 
@@ -48,7 +53,7 @@
             <summary>
             delegate that can be called when a spreadsheet was changed
             </summary>
-            <param name="tableContainer"></param>
+            <param name="tableContainer">TableContainer with the whole data</param>
         </member>
         <member name="T:XtabFileOpener.Spreadsheet.SpreadsheetAdapter.spreadsheetClosed">
             <summary>
@@ -118,13 +123,13 @@
             <param name="name">name of the new sheet</param>
             <returns>number of the new sheet, beginning at 0</returns>
         </member>
-        <member name="M:XtabFileOpener.Spreadsheet.SpreadsheetAdapter.SpreadsheetAdapter.setContentOfSheet(System.Int32,System.String[0:,0:],System.Boolean)">
+        <member name="M:XtabFileOpener.Spreadsheet.SpreadsheetAdapter.SpreadsheetAdapter.setContentOfSheet(System.Int32,System.Object[0:,0:],System.Boolean)">
             <summary>
             sets the content of a sheet in the workbook; if the sheet is not empty, all concerned cells are overridden
             </summary>
             <param name="number">number of the sheet, beginning at 0</param>
             <param name="content">new content of the sheet</param>
-            <param name="autosize">whether the columns in the sheet should adapt their width to the new content</param>
+            <param name="autosizeColumns">whether the columns in the sheet should adapt their width to the new content</param>
         </member>
         <member name="M:XtabFileOpener.Spreadsheet.SpreadsheetAdapter.SpreadsheetAdapter.deleteSheet(System.Int32)">
             <summary>
@@ -160,60 +165,25 @@
             enables open the tables with a program that can show and edit tables
             </summary>
         </member>
-        <member name="M:XtabFileOpener.Spreadsheet.SpreadsheetHandler.open">
-            <summary>
-            opens the spreadsheet
-            </summary>
-        </member>
-        <member name="M:XtabFileOpener.Spreadsheet.SpreadsheetHandler.createWorkbookFromTableContainer(XtabFileOpener.TableContainer.TableContainer,System.Boolean)">
-            <summary>
-            creates the workbook out of the TableContainer
-            </summary>
-            <param name="tableContainer">the TableContainer that should the workbook be created with</param>
-            <param name="autoSize">defines whether the column width should be autosized</param>
-        </member>
         <member name="M:XtabFileOpener.Spreadsheet.SpreadsheetHandler.waitForClosing">
             <summary>
             lets the current thread wait until the Excel workbook is closed
             </summary>
-        </member>
-        <member name="T:XtabFileOpener.TableContainer.Columns">
-            <summary>
-            represents the columns of a database table
-            </summary>
-        </member>
-        <member name="M:XtabFileOpener.TableContainer.Columns.System#Collections#IEnumerable#GetEnumerator">
-            <summary>
-            enables iterating over the columns
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:XtabFileOpener.TableContainer.Columns.Exists">
-            <summary>
-            checks whether these columns exist; if they are not existing, the corresponding table has no column definition
-            </summary>
-        </member>
-        <member name="T:XtabFileOpener.TableContainer.Row">
-            <summary>
-            represents a row (a record) of a database table
-            </summary>
-        </member>
-        <member name="M:XtabFileOpener.TableContainer.Row.System#Collections#IEnumerable#GetEnumerator">
-            <summary>
-            enables iterating over the values in the row
-            </summary>
-            <returns></returns>
         </member>
         <member name="T:XtabFileOpener.TableContainer.Table">
             <summary>
             represents a database tables
             </summary>
         </member>
-        <member name="M:XtabFileOpener.TableContainer.Table.System#Collections#IEnumerable#GetEnumerator">
+        <member name="F:XtabFileOpener.TableContainer.Table.tableArray">
             <summary>
-            enables iterating over the rows of this table excluding the row with the column names
+            one based array with the whole content of the table, including columns
             </summary>
-            <returns></returns>
+        </member>
+        <member name="P:XtabFileOpener.TableContainer.Table.firstRowContainsColumnNames">
+            <summary>
+            defines whether the first row in tableArray contains the column names
+            </summary>
         </member>
         <member name="P:XtabFileOpener.TableContainer.Table.Width">
             <summary>
@@ -225,18 +195,7 @@
             number of rows of the table including the row with the column names
             </summary>
         </member>
-        <member name="P:XtabFileOpener.TableContainer.Table.maxWidth">
-            <summary>
-            Length of the longest row, including the columns
-            </summary>
-        </member>
-        <member name="M:XtabFileOpener.TableContainer.Table.toArray">
-            <summary>
-            creates a string array of this table, including the column names
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:XtabFileOpener.TableContainer.Table.getArr">
+        <member name="P:XtabFileOpener.TableContainer.Table.TableArray">
             <summary>
             get an array with one-based indexing
             </summary>
@@ -249,7 +208,8 @@
         </member>
         <member name="T:XtabFileOpener.TableContainer.TableContainer">
             <summary>
-            Represents a container of database tables
+            Represents a container of database tables; the container is not static, that means it only contains references on tables.
+            the consequence is that iterating over the tables at different times can yield different tables
             </summary>
         </member>
         <member name="M:XtabFileOpener.TableContainer.TableContainer.System#Collections#IEnumerable#GetEnumerator">
@@ -268,7 +228,7 @@
             contains static methods that are useful for handling with two dimensional arrays
             </summary>
         </member>
-        <member name="M:XtabFileOpener.TableContainer.ListTableContainer.Array2D.changeArraySize(System.String[0:,0:],System.Int32,System.Int32)">
+        <member name="M:XtabFileOpener.TableContainer.ListTableContainer.Array2D.changeArraySize``1(``0[0:,0:],System.Int32,System.Int32)">
             <summary>
             creates a new array from an exisiting array with new dimensions
             </summary>
@@ -277,13 +237,22 @@
             <param name="width">new width</param>
             <returns>new array</returns>
         </member>
-        <member name="M:XtabFileOpener.TableContainer.ListTableContainer.Array2D.addRowToArray(System.String[0:,0:],System.String[])">
+        <member name="M:XtabFileOpener.TableContainer.ListTableContainer.Array2D.addRowToArray``1(``0[0:,0:],``0[])">
             <summary>
             creates a new array from an existing array, that has one more row
             </summary>
             <param name="array">old array</param>
             <param name="row">row that should be added</param>
             <returns>new array</returns>
+        </member>
+        <member name="M:XtabFileOpener.TableContainer.ListTableContainer.Array2D.addArrayToArray``1(``0[0:,0:],``0[0:,0:])">
+            <summary>
+            creates a new array of two exisiting arrays 
+            </summary>
+            <typeparam name="T">Type of the arrays</typeparam>
+            <param name="arr1"></param>
+            <param name="arr2"></param>
+            <returns>array containing both arrays</returns>
         </member>
         <member name="T:XtabFileOpener.TableContainer.ListTableContainer.ListTableContainer">
             <summary>
@@ -292,59 +261,38 @@
         </member>
         <member name="M:XtabFileOpener.TableContainer.ListTableContainer.ListTableContainer.#ctor(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String[0:,0:]}})">
             <summary>
-            
             </summary>
             <param name="_name">name of the TableContainer</param>
             <param name="_tables">tables of the TableContainer</param>
         </member>
-        <member name="T:XtabFileOpener.TableContainer.SpreadsheetTableContainer.ExcelTableContainer.ExcelColumns">
-            <summary>
-            Implementation of CColumns, that manages the columns of an Excel table
-            </summary>
-        </member>
-        <member name="T:XtabFileOpener.TableContainer.SpreadsheetTableContainer.ExcelTableContainer.ExcelRow">
-            <summary>
-            Implementation of CRow, that manages a row of an Excel table
-            </summary>
-        </member>
         <member name="T:XtabFileOpener.TableContainer.SpreadsheetTableContainer.ExcelTableContainer.ExcelTable">
             <summary>
-            Implementation of CTable, that manages an Excel table
+            Implementation of Table, that manages an Excel table
             </summary>
         </member>
         <member name="T:XtabFileOpener.TableContainer.SpreadsheetTableContainer.ExcelTableContainer.ExcelTableContainer">
             <summary>
-            Implementation of CTableContainer, that contains Excel database tables
-            </summary>
-        </member>
-        <member name="T:XtabFileOpener.TableContainer.XmlTableContainer.XmlColumns">
-            <summary>
-            Implementation of CColumns, that manages the columns of an XML-based table
-            </summary>
-        </member>
-        <member name="T:XtabFileOpener.TableContainer.XmlTableContainer.XmlRow">
-            <summary>
-            Implementation of CRow, that manages a row of an XML-based table
+            Implementation of TableContainer, that contains Excel database tables
             </summary>
         </member>
         <member name="T:XtabFileOpener.TableContainer.XmlTableContainer.XmlTable">
             <summary>
-            Implementation of CTable, that manages an XML-based table
+            Implementation of Table, that manages an XML-based table
             </summary>
         </member>
         <member name="T:XtabFileOpener.TableContainer.XmlTableContainer.XmlTableContainer">
             <summary>
-            Implementation of CTableContainer, that contains XML database tables 
+            Implementation of TableContainer, that contains XML database tables 
             </summary>
         </member>
-        <member name="T:XtabFileOpener.XtabFile.XtabFileHandler">
+        <member name="T:XtabFileOpener.XtabFile.XtabFile">
             <summary>
-            represents an xtab-file
+            represents an xtab-file and provides methods to work with it
             </summary>
         </member>
-        <member name="P:XtabFileOpener.XtabFile.XtabFileHandler.TableContainer">
+        <member name="P:XtabFileOpener.XtabFile.XtabFile.TableContainer">
             <summary>
-            TableContainer, that correspond to the xtab-file
+            TableContainer, that corresponds to the xtab-file
             </summary>
         </member>
         <member name="T:XtabFileOpener.XtabFile.XtabFormat">
