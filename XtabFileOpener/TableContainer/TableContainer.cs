@@ -46,12 +46,16 @@ namespace XtabFileOpener.TableContainer
         /// <summary>
         /// checks whether the given TableContainer is equals to this one concerning the name and content of every table
         /// </summary>
-        /// <param name="obj"></param>
+        /// <param name="other"></param>
         /// <returns></returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object other)
         {
-            TableContainer con = obj as TableContainer;
-            var bothCons = this.Zip(con, (t1, t2) => new { Table1 = t1, Table2 = t2 });
+            TableContainer otherContainer = other as TableContainer;
+            var bothCons = this.Zip(otherContainer, (t1, t2) => new { Table1 = t1, Table2 = t2 });
+            if (this.Count != otherContainer.Count)
+            {
+                return false;
+            }
             foreach (var com in bothCons)
             {
                 if (!com.Table1.Equals(com.Table2)) return false;
