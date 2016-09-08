@@ -130,7 +130,7 @@ namespace XtabFileOpener.Spreadsheet.SpreadsheetAdapter
             Range endCell = sheet.Cells.get_Item(content.GetLength(0), content.GetLength(1));
             Range rangeToSet = sheet.get_Range(startCell, endCell);
             rangeToSet.Value = content;
-
+            rangeToSet.NumberFormat = "@";
             if (autosizeColumns)
                 sheet.UsedRange.Columns.AutoFit();
         }
