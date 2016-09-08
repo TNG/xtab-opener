@@ -13,7 +13,12 @@ namespace XtabFileOpener.TableContainer.SpreadsheetTableContainer.ExcelTableCont
     {
         internal ExcelTable(string name, Range cells) : base(name)
         {
-            tableArray = cells.Value2;
+            /*
+             * "The only difference between this property and the Value property is that the Value2 property
+             *  doesn’t use the Currency and Date data types. You can return values formatted with these 
+             *  data types as floating-point numbers by using the Double data type."
+             * */
+            tableArray = cells.Value;
             firstRowContainsColumnNames = true;
         }
     }
