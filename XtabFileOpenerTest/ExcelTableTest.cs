@@ -31,7 +31,7 @@ namespace XtabFileOpenerTest
             Assert.AreEqual("text value", excelTable.TableArray[0, 0]);
             Assert.AreEqual("2016-12-31 00:00:00", excelTable.TableArray[0, 1]);
             Assert.AreEqual("2016-12-31 23:59:59", excelTable.TableArray[0, 2]);
-            Assert.AreEqual("2016-12-31 23:59:59.00900000", excelTable.TableArray[0, 3]);
+            Assert.AreEqual("2016-12-31 23:59:59.009000000", excelTable.TableArray[0, 3]);
         }
     }
 }

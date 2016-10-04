@@ -25,7 +25,7 @@ namespace XtabFileOpener.TableContainer.SpreadsheetTableContainer.ExcelTableCont
         private void ConvertDateTimesToIsoFormat()
         {
             string iso_time_format = "{0:yyyy-MM-dd HH:mm:ss}";
-            string iso_time_format_with_miliseconds = "{0:yyyy-MM-dd HH:mm:ss.ffffff}00";
+            string iso_time_format_with_miliseconds = "{0:yyyy-MM-dd HH:mm:ss.fffffff}00";
 
             for (int i = tableArray.GetLowerBound(0); i <= tableArray.GetUpperBound(0); i++)
             {
