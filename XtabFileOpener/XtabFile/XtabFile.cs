@@ -112,7 +112,21 @@ namespace XtabFileOpener.XtabFile
 
         private static void addValueToElement(XElement xRow, object value)
         {
-            xRow.Add(value == null ? new XElement(XtabFormat.nullvalue) : new XElement(XtabFormat.value, value.ToString()));
+            xRow.Add(sanitizeRowValue(value));
+        }
+
+        private static object sanitizeRowValue(object value)
+        {
+            char[] charactersThatAskForCdata = { '\u0020', '\n', '\r', '\t', '&', '<' };
+            if (value == null)
+            {
+                return new XElement(XtabFormat.nullvalue);
+            }
+            if (value.ToString().IndexOfAny(charactersThatAskForCdata) > -1)
+            {
+                return new XElement(XtabFormat.value, new XCData(value.ToString()));
+            }
+            return new XElement(XtabFormat.value, value.ToString());
         }
 
         private static void addColumnToElement(XElement xTable, object column)

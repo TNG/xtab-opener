@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using XtabFileOpener.Spreadsheet.SpreadsheetAdapter;
 
 namespace XtabFileOpener
@@ -31,6 +32,12 @@ namespace XtabFileOpener
                 {
                     System.Windows.Forms.MessageBox.Show(ex.Message);
                 }
+            } else if (args.Length == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Please give a single filename as parameter", "Missing parameter", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else
+            {
+                System.Windows.Forms.MessageBox.Show("Please give only a single filename as parameter. I received multiple.", "More than one parameter", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
