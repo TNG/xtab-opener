@@ -40,7 +40,7 @@ namespace XtabFileOpener.Spreadsheet.SpreadsheetAdapter
         {
             excel = new Application();
             excel.DisplayAlerts = false;
-            workbook = excel.Workbooks.Add(Type.Missing);
+            workbook = excel.Workbooks.Add(Type.Missing);            
             excel.Caption = name;
         }
 
@@ -78,9 +78,14 @@ namespace XtabFileOpener.Spreadsheet.SpreadsheetAdapter
         }
 
         private void onSave(Workbook savedWorkbook, bool SaveAsUI, ref bool Cancel)
-        {
-            raiseSaveEvent();
-            //cancel saving, so that no xls-file is created
+        {           
+            try { 
+                raiseSaveEvent();
+            } catch (Exception ex)
+            {
+                Runner.showErrorDialog(ex, "during the attempted save of this Excel workbook.");             
+            }
+            // cancel saving, so that no xls-file is created
             Cancel = true;
         }
 
