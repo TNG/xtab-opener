@@ -16,17 +16,26 @@ namespace XtabFileOpener.TableContainer.SpreadsheetTableContainer.ExcelTableCont
     {
         internal ExcelTable(string name, Range cells) : base(name)
         {
-            tableArray = cells.Value;
+            // TODO: This if-clause looks like it could need some refactoring.
+            // We need this extra logic because cells.Value is of type string or double 
+            // if the range only contains a single cell. 
+            if (cells.Value is object[,]) {
+                tableArray = cells.Value;
+            } else {                 
+                tableArray = new object[1, 1];
+                tableArray[0, 0] = cells.Value;
+            }
             firstRowContainsColumnNames = true;
-
             ConvertDateTimesToIsoFormat();
         }
 
         private void ConvertDateTimesToIsoFormat()
         {
             string iso_time_format = "{0:yyyy-MM-dd HH:mm:ss}";
-            string iso_time_format_with_miliseconds = "{0:yyyy-MM-dd HH:mm:ss.fffffff}00";
-
+            string iso_time_format_with_miliseconds = "{0:yyyy-MM-dd HH:mm:ss.fffffff}00";            
+            if (tableArray == null) { // Happens when table is empty
+                return;
+            }
             for (int i = tableArray.GetLowerBound(0); i <= tableArray.GetUpperBound(0); i++)
             {
                 for (int j = tableArray.GetLowerBound(1); j <= tableArray.GetUpperBound(1); j++)

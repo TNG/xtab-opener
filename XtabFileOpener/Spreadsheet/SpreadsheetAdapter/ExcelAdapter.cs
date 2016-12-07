@@ -40,7 +40,10 @@ namespace XtabFileOpener.Spreadsheet.SpreadsheetAdapter
         {
             excel = new Application();
             excel.DisplayAlerts = false;
-            workbook = excel.Workbooks.Add(Type.Missing);
+            workbook = excel.Workbooks.Add(Type.Missing);                        
+            // Note: We need to save the workbook once because otherwise the user would see the "save as" dialog when he attempts to just save
+            // for the first time
+            saveWorkbookAs();             
             excel.Caption = name;
         }
 
@@ -51,8 +54,15 @@ namespace XtabFileOpener.Spreadsheet.SpreadsheetAdapter
 
         public void destroySpreadsheet()
         {
-            //tmpFile.Delete();
-            //necessary to stop process
+            if (tmpFile != null) {
+               try { 
+                    tmpFile.Delete();
+                } catch ( Exception  exception)
+                {
+                    Runner.showErrorDialog(excel, exception, "attempting to delete tempfile " + tmpFile.FullName);
+                }
+            }
+            // necessary to stop process
             deleteObject(workbook);
             deleteObject(excel);
         }
@@ -68,7 +78,7 @@ namespace XtabFileOpener.Spreadsheet.SpreadsheetAdapter
 
         private void saveWorkbookAs()
         {
-            tmpFile = new FileInfo(Path.GetTempPath() + Path.GetRandomFileName());
+            tmpFile = new FileInfo(Path.GetTempPath() + Guid.NewGuid().ToString("N") + ".xslx");            
             workbook.SaveAs(tmpFile);
         }
 
@@ -79,8 +89,30 @@ namespace XtabFileOpener.Spreadsheet.SpreadsheetAdapter
 
         private void onSave(Workbook savedWorkbook, bool SaveAsUI, ref bool Cancel)
         {
-            raiseSaveEvent();
-            //cancel saving, so that no xls-file is created
+            // Note that SaveAsUI will also be true if Excel decides that the use _should_ see the "save as..." dialog. 
+            // This is at least the case when the file has never been saved before
+            if (SaveAsUI)             
+            {             
+                // FIXME: It seems, we might use the excel save-as dialog after all. 
+                // but we need to implement handling of the tempfile name. 
+                // object fileName = excel.GetSaveAsFilename("fileInfo.Name", string.Format("Excel files (*{0}), *{0}", ".xtab"), 1, "Save File Location");
+                            
+                String msg = "Sorry. The 'Save as...' dialog currently does not work with XtabFileOpener. \n" +
+                             "Only the 'Save' dialog is available.";
+                String title = "'Save as...' not possible";
+                Runner.showMessageInExcel(excel, msg, title);                
+                Cancel = true;
+                return;
+            }
+            
+            try
+            {
+                raiseSaveEvent();
+            } catch (Exception ex)
+            {
+                Runner.showErrorDialog(excel, ex, "during the attempted save of this Excel workbook.");             
+            }
+            // cancel saving, so that no xls-file is created
             Cancel = true;
         }
 
