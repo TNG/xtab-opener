@@ -91,7 +91,6 @@ namespace XtabFileOpenerTest.SpreadsheetMock
             if (y >= table.GetLength(0) || x >= table.GetLength(1))
             {
                 table = Array2D.changeArraySize(table, y + 1, x + 1);
-                Array2D.replaceNullByEmptyString(table);
             }
             table[y, x] = value;
             setContentOfSheet(sheetNumber, table, true);
@@ -108,7 +107,6 @@ namespace XtabFileOpenerTest.SpreadsheetMock
         {
             string[,] table = tables.ElementAt(sheetNumber).Value;
             table = Array2D.addArrayToArray(table, range);
-            Array2D.replaceNullByEmptyString(table);
             setContentOfSheet(sheetNumber, table, true);
         }
 

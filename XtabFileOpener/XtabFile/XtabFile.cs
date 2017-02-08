@@ -121,6 +121,9 @@ namespace XtabFileOpener.XtabFile
             if (value == null)
             {
                 return new XElement(XtabFormat.nullvalue);
+            } else if (value.ToString() == String.Empty)
+            {
+                return new XElement(XtabFormat.value, String.Empty);
             }
             if (value.ToString().IndexOfAny(charactersThatAskForCdata) > -1)
             {
