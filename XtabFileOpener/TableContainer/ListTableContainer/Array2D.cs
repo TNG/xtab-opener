@@ -72,16 +72,6 @@ namespace XtabFileOpener.TableContainer.ListTableContainer
             return newArray;
         }
 
-        public static void replaceNullByEmptyString(object[,] array)
-        {
-            for (int i = array.GetLowerBound(0); i <= array.GetUpperBound(0); i++)
-            {
-                for (int j = array.GetLowerBound(1); j <= array.GetUpperBound(1); j++)
-                    if (array[i, j] == null)
-                        array[i, j] = String.Empty;
-            }
-        }
-
         /// <summary>
         /// creates a new array from an existing array, that has one more row
         /// </summary>
@@ -142,6 +132,10 @@ namespace XtabFileOpener.TableContainer.ListTableContainer
                     int arr2Count1 = arr2.GetLowerBound(1);
                     for (int j = 0; j < length1; j++)
                     {
+                        if (arr1[arr1Count0, arr1Count1] == null ^ arr2[arr2Count0, arr2Count1] == null)
+                            return false;
+                        if (arr1[arr1Count0, arr1Count1] == null && arr2[arr2Count0, arr2Count1] == null)
+                            return true;
                         if (!arr1[arr1Count0, arr1Count1].Equals(arr2[arr2Count0, arr2Count1]))
                             return false;
                         arr1Count1++;

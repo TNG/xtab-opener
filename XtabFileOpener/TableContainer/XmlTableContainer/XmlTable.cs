@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using XtabFileOpener.TableContainer.ListTableContainer;
+using XtabFileOpener.XtabFile;
 
 namespace XtabFileOpener.TableContainer.XmlTableContainer
 {
@@ -13,6 +14,8 @@ namespace XtabFileOpener.TableContainer.XmlTableContainer
     /// </summary>
     public class XmlTable : Table
     {
+        private readonly object emptyStringMarker = "'";
+
         public XmlTable(string name, IEnumerable<XElement> rows, IEnumerable<XElement> columns) : base(name)
         {
             createTableArray(rows, columns);
@@ -45,12 +48,17 @@ namespace XtabFileOpener.TableContainer.XmlTableContainer
                 foreach (XElement value in row.Elements())
                 {
                     tableArray[i, j] = value.Value;
+                    if (value.Name == XtabFormat.nullvalue)
+                    {
+                        tableArray[i, j] = null; 
+                    } else if (value.Value == String.Empty) {
+                        tableArray[i, j] = emptyStringMarker;
+                    }
+                    
                     j++;
                 }
                 i++;
             }
-
-            Array2D.replaceNullByEmptyString(tableArray);
         }
 
         private int getMaxWidth(IEnumerable<XElement> rows, int columnsCount)
